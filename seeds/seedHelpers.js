@@ -1,0 +1,2 @@
+module.exports.descriptors = ["Heavy", "Banana", "AppleTree", "Green", "Red", "Mountainside", "Ocean", "Sandy", "Emerald", "Crystal", "Alpine", "Soft", "Center", "Freedom", "Leopard", "Lion", "Dalmation", "Kangaroo"];
+module.exports.places = ["Park", "Overlook", "Overview", "Vista", "Beach", "Bay", "Hills", "Valley", "City", "Avenue", "Adventure Park", "House", "Hotel", "Fields"];
