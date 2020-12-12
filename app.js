@@ -66,8 +66,10 @@ passport.deserializeUser(User.deserializeUser());
 ///middleware for flash messages
 app.use(flash());
 app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.returnTo = req.session.returnTo;
     next();
 });
 
@@ -76,7 +78,7 @@ app.use((req, res, next) => {
 
 app.use("/", userRoutes)
 app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/reviews/", reviewRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 
 app.get("/", (req, res) => {
