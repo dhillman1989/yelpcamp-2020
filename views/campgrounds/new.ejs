@@ -3,7 +3,13 @@
 <div class="row">
   <h1 class="text-center">New Campground</h1>
   <div class="col-6 offset-3">
-    <form action="/campgrounds" method="POST" class="validated-form" novalidate>
+    <form
+      action="/campgrounds"
+      method="POST"
+      class="validated-form"
+      enctype="multipart/form-data"
+      novalidate
+    >
       <label class="form-label mt-3" for="title">Title</label>
       <input
         id="title"
@@ -20,13 +26,9 @@
         required
       />
       <p class="invalid-feedback">Field is required</p>
+      <input type="file" name="image" multiple />
       <label class="form-label mt-3" for="image">Image</label>
-      <input
-        id="image"
-        name="campground[image]"
-        class="form-control"
-        required
-      />
+
       <p class="invalid-feedback">Field is required</p>
       <label class="form-label mt-3" for="description">Description</label>
       <textarea
