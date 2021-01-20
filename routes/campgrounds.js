@@ -22,7 +22,6 @@ const { isLoggedIn, isAuthor, validateCampground } = require("../middleware");
 //MULTER/cloudinary IMPORT AND CONFIG
 const multer = require("multer");
 const { storage } = require("../cloudinary");
-const campground = require("../models/campground");
 const upload = multer({ storage });
 
 router
@@ -30,19 +29,12 @@ router
   .get(catchAsync(campgrounds.index))
   .post(
     isLoggedIn,
+    upload.array("images"),
     validateCampground,
     catchAsync(campgrounds.createCampground)
   );
-router.get("/");
 
 router.get("/new", isLoggedIn, catchAsync(campgrounds.renderNewForm));
-
-router.post(
-  "/",
-  isLoggedIn,
-  validateCampground,
-  catchAsync(campgrounds.createCampground)
-);
 
 router
   .route("/:id")
