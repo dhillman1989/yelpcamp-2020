@@ -18,6 +18,7 @@ module.exports.campgroundSchema = Joi.object({
     //   .required()
     //   .error(new Error("A valid image is required.")),
   }).required(),
+  deleteImages: Joi.array(),
 });
 
 module.exports.reviewSchema = Joi.object({

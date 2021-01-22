@@ -25,12 +25,21 @@
         class="form-control"
         required
       />
-      <label class="form-label mt-3" for="images">Upload Images</label><br />
-      <p class="invalid-feedback">Field is required</p>
-      <input type="file" name="images" multiple />
-      <br />
 
       <p class="invalid-feedback">Field is required</p>
+
+      <div class="input-group my-3">
+        <input
+          type="file"
+          class="form-control"
+          name="images"
+          id="images"
+          multiple
+        />
+        <label class="input-group-text" for="images">Upload</label>
+        <p class="invalid-feedback">Field is required</p>
+      </div>
+
       <label class="form-label mt-3" for="description">Description</label>
       <textarea
         id="description"

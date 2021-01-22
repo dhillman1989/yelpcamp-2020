@@ -29,10 +29,18 @@
       />
 
       <p class="invalid-feedback">Field is required</p>
-      <label class="form-label mt-3" for="images">Upload Images</label><br />
-      <p class="invalid-feedback">Field is required</p>
-      <input type="file" name="images" multiple />
-      <br />
+
+      <div class="input-group my-3">
+        <input
+          type="file"
+          class="form-control"
+          name="images"
+          id="images"
+          multiple
+        />
+        <label class="input-group-text" for="images">Upload</label>
+      </div>
+
       <p class="invalid-feedback">Field is required</p>
       <label class="form-label mt-3" for="description">Description</label>
       <textarea
@@ -53,6 +61,21 @@
           required/>
           <p class="invalid-feedback">Field is required</p>
         </div>
+      </div>
+      <div class="mb-3">
+        <% campground.images.forEach((image, i)=>{ %>
+        <img src="<%= image.thumbnail %>" alt="" class="img-thumbnail" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%= i %>"
+            name="deleteImages[]"
+            value="<%= image.filename %>"
+          />
+          <label for="image-<%= i %>">Delete</label>
+        </div>
+
+        <% }) %>
       </div>
       <button class="mt-3 mb-3 btn btn-success">Update Details</button>
     </form>
