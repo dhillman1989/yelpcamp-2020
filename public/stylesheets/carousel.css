@@ -1,0 +1,11 @@
+.carousel-item {
+  background-color: #33522d;
+  height: 500px;
+}
+
+.carousel-item img {
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
