@@ -12,7 +12,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const passportLocal = require("passport-local");
 const User = require("./models/user");
-
+const mongoSanitize = require("express-mongo-sanitize");
 ///ROUTES
 const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
@@ -38,6 +38,7 @@ mongoose
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use(mongoSanitize());
 
 const path = require("path");
 const { ValidationError } = require("joi");
@@ -71,6 +72,7 @@ passport.deserializeUser(User.deserializeUser());
 ///middleware for flash messages
 app.use(flash());
 app.use((req, res, next) => {
+  console.log(req.query);
   res.locals.currentUser = req.user;
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
